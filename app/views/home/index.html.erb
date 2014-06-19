@@ -1,0 +1,77 @@
+   
+    
+<header>
+<h1>Here are the top Trending Instagram Pictures</h1>
+
+</header>
+
+
+
+
+<!--    <div class="row">
+ -->    <div class="large-5 columns">
+      <h2>Here's a list of the Top 10 instagram pictures:</h2>
+
+  <% @instagram.each do |instagram| %>
+
+    <%= image_tag instagram.images.standard_resolution.url %>
+    <%= instagram.caption.text %>
+    <br />Username: <%= instagram.caption.from.username %>
+    <br /><a href="<%= instagram.link %>"><%= instagram.link %></a>
+  <br />
+
+    <% end %>
+
+    </div>
+  <div class="large-5 columns">
+<label>Search #hashtag
+<%= text_field_tag :hashword2, params[:hashword2] %>
+      </label>
+
+      <div class ="gram">
+
+   <% if @tags2.present? %>
+
+<!--    <h1><#%= params[:hashword2] %></h1>
+ -->
+    <% @tags2.each do |tags| %>
+
+    <%= image_tag tags.images.standard_resolution.url, class: "picture" %>
+
+    <% end %>
+    <% end %>
+
+
+  <div class="large-5 columns">
+      <h2>Top 10 instagram pictures near General Assembly:</h2>
+
+
+  <% @instagramga.each do |instagramga| %>
+
+    <%= image_tag instagramga.images.standard_resolution.url %>
+
+
+    <br /><a href="<%= instagramga.link %>"><%= instagramga.link %></a>
+    <br />
+
+    <% end %>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
