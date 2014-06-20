@@ -1,4 +1,4 @@
-   
+    <%= form_tag root_path, :method => 'get' do %>
     
 <header>
 <h1>Here are the top Trending Instagram Pictures</h1>
@@ -9,69 +9,55 @@
 
 
 <!--    <div class="row">
- -->    <div class="large-5 columns">
+ -->    <div class="large-3 columns">
       <h2>Here's a list of the Top 10 instagram pictures:</h2>
 
   <% @instagram.each do |instagram| %>
 
     <%= image_tag instagram.images.standard_resolution.url %>
-    <%= instagram.caption.text %>
-    <br />Username: <%= instagram.caption.from.username %>
+    
+    <br /> Username:<%= instagram.caption.from.username %>
     <br /><a href="<%= instagram.link %>"><%= instagram.link %></a>
   <br />
 
     <% end %>
-
+<% end %>
     </div>
-  <div class="large-5 columns">
-<label>Search #hashtag
-<%= text_field_tag :hashword2, params[:hashword2] %>
-      </label>
 
-      <div class ="gram">
+  <div class="large-3 columns">
+    <h2><%= submit_tag "your #tag", class:"button expand" %></h2>
+    
+    <br />
 
-   <% if @tags2.present? %>
+        <% @tag.each do |tag| %>
 
-<!--    <h1><#%= params[:hashword2] %></h1>
- -->
-    <% @tags2.each do |tags| %>
+        <%= image_tag tag.images.standard_resolution.url %>
+        <%= tag.caption.text %>
+   
+    <br />Username: <%= tag.caption.from.username %>
+    <br /><a href="<%= tag.link %>"><%= tag.link %></a>
 
-    <%= image_tag tags.images.standard_resolution.url, class: "picture" %>
+        <% end %>
+     
 
-    <% end %>
-    <% end %>
+</div>
 
-
-  <div class="large-5 columns">
+  <div class="large-3 columns">
       <h2>Top 10 instagram pictures near General Assembly:</h2>
 
 
   <% @instagramga.each do |instagramga| %>
 
     <%= image_tag instagramga.images.standard_resolution.url %>
-
-
+        
+    <br />Username: <%= instagramga.caption.from.username %>
+    <%= instagramga.caption.text %>
     <br /><a href="<%= instagramga.link %>"><%= instagramga.link %></a>
     <br />
+     <% end %>
+  
 
-    <% end %>
-
+   
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
